@@ -3,7 +3,7 @@ import BN from 'bn.js'
 import toFraction from '@/functions/number/toFraction'
 import { HexAddress } from '@/types/constants'
 
-import toBN from '../../../functions/number/toBN'
+import toBN from '@/functions/number/toBN'
 import { LpToken, SplToken } from '../../token/type'
 import { HydratedLiquidityInfo, LiquidityParsedInfo, LiquidityPoolInfo } from '../type'
 import { TokenAmount } from '@/types/entity'

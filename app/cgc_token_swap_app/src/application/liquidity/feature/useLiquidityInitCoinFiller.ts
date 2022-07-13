@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
-
 import useToken from '@/application/token/useToken'
 import { CHICKSMint, SHARDSMint } from '@/application/token/utils/wellknownToken.config'
-
 import useLiquidity from '../useLiquidity'
 import toPubString from '@/functions/format/toMintString'
 

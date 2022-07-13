@@ -1,10 +1,7 @@
 import React, { Fragment, ReactNode, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-
 import { Transition } from '@headlessui/react'
-
 import { twMerge } from 'tailwind-merge'
-
 import { shrinkToValue } from '@/functions/shrinkToValue'
 import { MayFunction } from '@/types/constants'
 import { inClient } from '@/functions/judgers/isSSR'

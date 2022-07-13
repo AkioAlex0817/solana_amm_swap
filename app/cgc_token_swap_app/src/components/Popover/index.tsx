@@ -10,11 +10,8 @@ import React, {
   useState
 } from 'react'
 import { createPortal } from 'react-dom'
-
 import { Transition } from '@headlessui/react'
-
 import { twMerge } from 'tailwind-merge'
-
 import { inClient } from '@/functions/judgers/isSSR'
 import addPropsToReactElement from '@/functions/react/addPropsToReactElement'
 import { pickReactChild } from '@/functions/react/pickChild'
@@ -134,7 +131,6 @@ export default function Popover({
   popoverGap,
   viewportBoundaryInset
 }: PopoverProps) {
-  // TODO: no need if buttonRef can be HTMLDivElement not just RefObject<HTMLDivElement>
   const [isPanelRefReady, setIsPanelRefReady] = useState(false)
 
   const buttonRef = useRef<HTMLDivElement>(null)
@@ -143,7 +139,6 @@ export default function Popover({
     onDetach: () => setIsPanelRefReady(false)
   })
 
-  // TODO: buttonRef can be HTMLDivElement not just RefObject<HTMLDivElement>
   const { isPanelShowed, controls } = usePopoverTrigger(buttonRef, panelRef, {
     disabled: !canOpen,
     triggerBy,

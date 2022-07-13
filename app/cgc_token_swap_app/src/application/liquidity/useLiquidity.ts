@@ -3,7 +3,6 @@ import { SplToken } from '../token/type'
 import { HydratedLiquidityInfo, LiquidityParsedInfo, LiquidityPoolInfo } from '@/application/liquidity/type'
 import { PublicKeyish } from '@/types/constants'
 import { toDataMint } from '@/application/token/utils/quantumSOL'
-import { async } from 'rxjs'
 
 export type LiquidityStore = {
   /********************** caches (at least includes exhibition's data) **********************/

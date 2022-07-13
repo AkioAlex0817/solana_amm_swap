@@ -30,13 +30,8 @@ export default function txRemoveLiquidity(): Promise<FinalInfo> {
       const {
         coin1,
         coin2,
-        coin1Amount,
-        coin2Amount,
         currentPoolInfo,
-        focusSide,
         removeAmount,
-        unslippagedCoin1Amount,
-        unslippagedCoin2Amount
       } = useLiquidity.getState()
       useAppSettings.setState({ isApprovePanelShown: true })
       try {
@@ -67,7 +62,7 @@ export default function txRemoveLiquidity(): Promise<FinalInfo> {
         const tokenYVault = new PublicKey(currentPoolInfo.quoteVault)
         const poolMint = new PublicKey(currentPoolInfo.lpMint)
         const poolAuthority = new PublicKey(currentPoolInfo.authority)
-        const [config, config_b] = await anchor.web3.PublicKey.findProgramAddress(
+        const [config] = await anchor.web3.PublicKey.findProgramAddress(
           [
             Buffer.from(CONFIG_PDA_SEED),
             Buffer.from(currentPoolInfo.pair),

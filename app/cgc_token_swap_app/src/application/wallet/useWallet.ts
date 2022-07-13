@@ -58,12 +58,6 @@ export type WalletStore = {
   balances: Record<HexAddress, TokenAmount>
 
   /**
-   * only if shadowWallet is on
-   * @todo not imply yet!
-   */
-  shadowBalances?: Record<HexAddress, TokenAmount>
-
-  /**
    * rawbalance is BN , has QuantumSOL,
    * for balance without QuantumSOL, use `pureRawBalances`
    */

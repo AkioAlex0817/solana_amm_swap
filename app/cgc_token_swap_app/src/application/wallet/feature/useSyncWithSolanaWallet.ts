@@ -1,15 +1,11 @@
 import { useEffect } from 'react'
-
 import { useWallet as _useWallet } from '@solana/wallet-adapter-react'
 import { PublicKey, Transaction } from '@solana/web3.js'
-
 import useConnection from '@/application/connection/useConnection'
 import { attachRecentBlockhash } from '@/application/txTools/attachRecentBlockhash'
-
 import useWallet from '../useWallet'
 import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect '
 import { isValidePublicKey } from '@/functions/judgers/dateType'
-import { async } from 'rxjs'
 
 /**
  * **only in `_app.tsx`**

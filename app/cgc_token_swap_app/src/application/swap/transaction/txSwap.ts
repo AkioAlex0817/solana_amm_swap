@@ -1,4 +1,3 @@
-import exp from 'constants'
 import useWallet from '@/application/wallet/useWallet'
 import useProgram, { CONFIG_PDA_SEED } from '@/application/program/useProgram'
 import useConnection from '@/application/connection/useConnection'
@@ -21,7 +20,7 @@ type FinalInfo = {
 }
 
 export default function txSwap(): Promise<FinalInfo> {
-  return new Promise((resolve, reject) =>
+  return new Promise((resolve) =>
     (async () => {
       const { checkWalletHasEnoughBalance, owner, getTokenAccount } = useWallet.getState()
       const program = useProgram.getState().program
@@ -68,7 +67,7 @@ export default function txSwap(): Promise<FinalInfo> {
         const tokenXVault = new PublicKey(marketInfo.baseVault)
         const tokenYVault = new PublicKey(marketInfo.quoteVault)
         const poolAuthority = new PublicKey(marketInfo.authority)
-        const [config, config_b] = await anchor.web3.PublicKey.findProgramAddress(
+        const [config] = await anchor.web3.PublicKey.findProgramAddress(
           [
             Buffer.from(CONFIG_PDA_SEED),
             Buffer.from(marketInfo.pair),

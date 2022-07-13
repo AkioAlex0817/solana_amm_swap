@@ -19,7 +19,7 @@ type FinalInfo = {
 }
 
 export default function toAddLiquidity(): Promise<FinalInfo> {
-  return new Promise((resolve, reject) =>
+  return new Promise((resolve) =>
     (async () => {
       const { checkWalletHasEnoughBalance, owner, getTokenAccount } = useWallet.getState()
       const slippage = useAppSettings.getState().slippageTolerance
@@ -85,7 +85,7 @@ export default function toAddLiquidity(): Promise<FinalInfo> {
           )
         }
 
-        const [config, config_b] = await anchor.web3.PublicKey.findProgramAddress(
+        const [config] = await anchor.web3.PublicKey.findProgramAddress(
           [
             Buffer.from(CONFIG_PDA_SEED),
             Buffer.from(currentPoolInfo.pair),

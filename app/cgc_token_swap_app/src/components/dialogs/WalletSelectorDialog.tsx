@@ -1,7 +1,5 @@
 import React, { useRef } from 'react'
-
 import { WalletAdapter, WalletReadyState } from '@solana/wallet-adapter-base'
-
 import useAppSettings from '@/application/appSettings/useAppSettings'
 import useWallet from '@/application/wallet/useWallet'
 import Card from '@/components/Card'
@@ -10,9 +8,6 @@ import Row from '@/components/Row'
 
 import Grid from '../Grid'
 import ResponsiveDialogDrawer from '../ResponsiveDialogDrawer'
-import Input from '../Input'
-import Col from '../Col'
-import Button from '../Button'
 
 function WalletSelectorPanelItem({
   wallet,
@@ -42,39 +37,6 @@ function WalletSelectorPanelItem({
   )
 }
 
-function SimulateWallet({ onClick }: { onClick?(): void }) {
-  const { select } = useWallet()
-  const valueRef = useRef('')
-  return (
-    <Col className="p-6 mobile:py-3 mobile:px-4 flex-grow ring-inset ring-1.5 mobile:ring-1 ring-[rgba(171,196,255,.5)] rounded-3xl mobile:rounded-xl items-center gap-3 m-8 mt-2 mb-4">
-      <div className="mobile:text-sm text-base font-bold text-white">Simulate Wallet Address</div>
-      <Input
-        className="w-full"
-        onUserInput={(value) => (valueRef.current = value)}
-        onEnter={(value) => {
-          if (value) {
-            // @ts-expect-error force
-            select(value)
-            onClick?.()
-          }
-        }}
-      />
-      <Button
-        className="frosted-glass-teal"
-        onClick={() => {
-          if (valueRef.current) {
-            // @ts-expect-error force
-            select(valueRef.current)
-            onClick?.()
-          }
-        }}
-      >
-        Fake it 🤘
-      </Button>
-    </Col>
-  )
-}
-
 export default function WalletSelectorDialog() {
   const isWalletSelectorShown = useAppSettings((s) => s.isWalletSelectorShown)
   const { availableWallets } = useWallet()
@@ -99,9 +61,6 @@ function PanelContent({
   const installedWallets = wallets
     .filter((w) => w.readyState !== WalletReadyState.Unsupported)
     .filter((w) => w.readyState !== WalletReadyState.NotDetected)
-  const notInstalledWallets = wallets
-    .filter((w) => w.readyState !== WalletReadyState.Unsupported)
-    .filter((w) => w.readyState == WalletReadyState.NotDetected)
 
   return (
     <Card

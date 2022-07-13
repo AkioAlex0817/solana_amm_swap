@@ -15,7 +15,7 @@ export default async function sdkParseJsonLiquidityInfo(
 ): Promise<LiquidityParsedInfo | undefined> {
   if (connection && wallet && program) {
     try {
-      const [config, config_b] = await web3.PublicKey.findProgramAddress(
+      const [config] = await web3.PublicKey.findProgramAddress(
         [
           Buffer.from(CONFIG_PDA_SEED),
           Buffer.from(liquidityPoolInfo.pair),

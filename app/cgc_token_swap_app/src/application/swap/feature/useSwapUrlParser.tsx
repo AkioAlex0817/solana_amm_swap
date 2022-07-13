@@ -136,7 +136,7 @@ export default function useSwapUrlParser(): void {
   const throttledUpdateUrl = useCallback(
     throttle(
       (pathname: string, query: Record<string, any>) => {
-        replace({ pathname, query }, undefined, { shallow: true })
+        replace({ pathname, query }, undefined, { shallow: true }).then()
       },
       { delay: 100 }
     ),

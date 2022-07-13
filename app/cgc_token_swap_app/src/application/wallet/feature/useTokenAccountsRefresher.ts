@@ -11,7 +11,6 @@ import { useSwap } from '@/application/swap/useSwap'
 import useLiquidity from '@/application/liquidity/useLiquidity'
 import toPubString from '@/functions/format/toMintString'
 import { shakeFalsyItem } from '@/functions/arrayMethods'
-import { CHICKSMint, SHARDSMint } from '@/application/token/utils/wellknownToken.config'
 
 /** update token accounts will cause balance refresh */
 export default function useTokenAccountsRefresher(): void {

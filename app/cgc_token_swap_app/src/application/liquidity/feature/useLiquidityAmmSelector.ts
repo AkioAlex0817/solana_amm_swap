@@ -1,9 +1,7 @@
 import { useEffect } from 'react'
-
 import useToken from '@/application/token/useToken'
 import { isMintEqual } from '@/functions/judgers/areEqual'
 import useAsyncEffect from '@/hooks/useAsyncEffect'
-
 import useLiquidity from '../useLiquidity'
 
 /** coin1 coin2 ammId */

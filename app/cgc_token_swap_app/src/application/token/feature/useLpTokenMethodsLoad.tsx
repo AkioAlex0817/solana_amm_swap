@@ -4,7 +4,6 @@ import { PublicKeyish } from '@/types/constants'
 import useToken from '../useToken'
 import { SplToken } from '../type'
 import { SOLUrlMint, QuantumSOLVersionSOL, WSOLMint, QuantumSOLVersionWSOL } from '../utils/quantumSOL'
-import { min } from 'bn.js'
 
 export function useLpTokenMethodsLoad() {
   const lpTokens = useToken((s) => s.lpTokens)

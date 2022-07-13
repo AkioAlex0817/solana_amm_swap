@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import { ReactNode, useEffect } from 'react'
-import Image from '@/components/Image'
 import useAppSettings from '@/application/appSettings/useAppSettings'
 import { useRouter } from 'next/router'
 import Button from '@/components/Button'

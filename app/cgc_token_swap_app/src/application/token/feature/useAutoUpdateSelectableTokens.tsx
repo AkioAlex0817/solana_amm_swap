@@ -1,5 +1,4 @@
 import useWallet from '@/application/wallet/useWallet'
-import toPubString from '@/functions/format/toMintString'
 import { useMemo } from 'react'
 
 import useToken from '../useToken'
@@ -19,8 +18,6 @@ export default function useAutoUpdateSelectableTokens() {
     const activeTokenListNames = Object.entries(tokenListSettings)
       .filter(([, setting]) => setting.isOn)
       .map(([name]) => name)
-
-    const verboseTokensMints = verboseTokens.map((t) => toPubString(t.mint))
     return [...verboseTokens].filter((token) => {
       return activeTokenListNames.some((tokenListName) =>
         tokenListSettings[tokenListName]?.mints?.has(String(token.mint))
